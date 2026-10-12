@@ -1,0 +1,90 @@
+.highlight-card {
+  position: relative;
+  background: rgba(10, 22, 54, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245, 197, 66, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(2, 132, 199, 0.2);
+  background: rgba(13, 28, 68, 0.8);
+}
+
+.highlight-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.highlight-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(245, 197, 66, 0.1) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  transition: all 0.25s ease;
+}
+
+.highlight-card:hover .highlight-icon-box {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(245, 197, 66, 0.25) 100%);
+  color: #f5c542;
+  border-color: rgba(245, 197, 66, 0.5);
+  box-shadow: 0 0 14px rgba(245, 197, 66, 0.25);
+}
+
+.highlight-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #f5c542;
+  background: rgba(245, 197, 66, 0.1);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 197, 66, 0.25);
+}
+
+.highlight-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+  letter-spacing: -0.2px;
+}
+
+.highlight-card-desc {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.highlight-card-bottom-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.highlight-card:hover .highlight-card-bottom-accent {
+  opacity: 1;
+}

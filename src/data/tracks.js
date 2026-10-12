@@ -1,0 +1,58 @@
+export const tracks = [
+  {
+    id: 'manufacturing',
+    title: 'Manufacturing',
+    category: 'Industry 4.0',
+    description: 'Precision robotic manipulation, automated assembly lines, digital twins, and predictive maintenance for smart factory ecosystems.',
+    icon: 'factory',
+  },
+  {
+    id: 'healthcare',
+    title: 'Healthcare',
+    category: 'Bio-Robotics & AI',
+    description: 'Robotic-assisted surgery, diagnostic AI systems, automated rehabilitation systems, and smart clinical workflow management.',
+    icon: 'heart',
+  },
+  {
+    id: 'education',
+    title: 'Education',
+    category: 'EdTech & Learning',
+    description: 'Adaptive learning intelligence, pedagogical robotics kits, immersive simulation laboratories, and STEM innovation platforms.',
+    icon: 'book',
+  },
+  {
+    id: 'smart-living',
+    title: 'Smart Living',
+    category: 'IoT & Ambient Intelligence',
+    description: 'Home automation systems, intelligent domestic robotics, energy management AI, and ambient assisted living architectures.',
+    icon: 'home',
+  },
+  {
+    id: 'business-services',
+    title: 'Business & Services',
+    category: 'Enterprise Automation',
+    description: 'Intelligent process automation, cognitive customer service agents, automated logistics fulfillment, and business intelligence.',
+    icon: 'briefcase',
+  },
+  {
+    id: 'agriculture',
+    title: 'Agriculture',
+    category: 'AgriTech & Robotics',
+    description: 'Autonomous crop monitoring rovers, drone aerial analytics, precision robotic harvesting, and intelligent irrigation management.',
+    icon: 'plant',
+  },
+  {
+    id: 'automotive-mobility',
+    title: 'Automotive & Mobility',
+    category: 'Autonomous Systems',
+    description: 'Electric vehicle autonomous navigation, intelligent fleet optimization, LiDAR perception systems, and smart transit infrastructure.',
+    icon: 'car',
+  },
+  {
+    id: 'security-surveillance',
+    title: 'Security & Surveillance',
+    category: 'Intelligent Vision',
+    description: 'Real-time video analytics, perimeter surveillance drones, biometric identification, and automated threat mitigation systems.',
+    icon: 'shield',
+  },
+];

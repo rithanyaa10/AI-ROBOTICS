@@ -1,0 +1,319 @@
+/* Hero Carousel Section */
+.hero-carousel-section {
+  position: relative;
+  width: 100%;
+  background-color: #040816;
+  overflow: hidden;
+  outline: none;
+}
+
+.hero-carousel-section:focus-visible {
+  box-shadow: inset 0 0 0 2px #38bdf8;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 950;
+  min-height: clamp(340px, 50vw, 920px);
+  max-height: 960px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Carousel Track & Slides */
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s;
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.slide-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Subtle Gradient Overlays for seamless blending */
+.carousel-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background: linear-gradient(180deg, rgba(3, 8, 22, 0.7) 0%, rgba(3, 8, 22, 0.2) 65%, transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.carousel-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(0deg, rgba(3, 8, 22, 0.85) 0%, rgba(3, 8, 22, 0.3) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Navigation Arrows (Prev / Next) */
+.carousel-control-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(5, 12, 30, 0.65);
+  border: 1px solid rgba(245, 197, 66, 0.45);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.carousel-control-btn:hover {
+  background: rgba(2, 132, 199, 0.85);
+  border-color: #f5c542;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(2, 132, 199, 0.6), 0 0 8px rgba(245, 197, 66, 0.4);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-control-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.carousel-control-btn:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 3px;
+}
+
+.control-prev {
+  left: 24px;
+}
+
+.control-next {
+  right: 24px;
+}
+
+.control-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Indicator Dots and Play/Pause Bar */
+.carousel-indicators-wrapper {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(4, 9, 24, 0.7);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.indicator-dot {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.indicator-dot:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.dot-inner {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.indicator-dot:hover .dot-inner {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.indicator-dot.active .dot-inner {
+  width: 28px;
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #38bdf8 0%, #f5c542 100%);
+  box-shadow: 0 0 10px rgba(245, 197, 66, 0.6);
+}
+
+/* Play/Pause Button */
+.carousel-play-pause-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  padding: 0;
+  margin-left: 2px;
+}
+
+.carousel-play-pause-btn:hover {
+  color: #f5c542;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.carousel-play-pause-btn:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+  .carousel-container {
+    aspect-ratio: 16 / 9;
+    min-height: 280px;
+  }
+
+  .carousel-control-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .control-prev {
+    left: 10px;
+  }
+
+  .control-next {
+    right: 10px;
+  }
+
+  .control-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .carousel-indicators-wrapper {
+    bottom: 12px;
+    padding: 4px 10px;
+    gap: 8px;
+  }
+
+  .dot-inner {
+    width: 8px;
+    height: 8px;
+  }
+
+  .indicator-dot.active .dot-inner {
+    width: 20px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    min-height: 240px;
+  }
+
+  .carousel-control-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .control-prev {
+    left: 6px;
+  }
+
+  .control-next {
+    right: 6px;
+  }
+
+  .carousel-indicators-wrapper {
+    bottom: 8px;
+  }
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide {
+    transition: none !important;
+  }
+
+  .carousel-control-btn {
+    transition: none !important;
+  }
+
+  .dot-inner {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,30 @@
+.tracks-section {
+  padding: 80px 24px;
+  background: radial-gradient(circle at 80% 20%, rgba(2, 132, 199, 0.12) 0%, rgba(4, 8, 22, 1) 70%);
+  position: relative;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 1200px) {
+  .tracks-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .tracks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .tracks-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

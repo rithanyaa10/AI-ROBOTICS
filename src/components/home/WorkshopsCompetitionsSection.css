@@ -1,0 +1,335 @@
+.workshops-competitions-section {
+  padding: 84px 24px;
+  background-color: #040816;
+  position: relative;
+}
+
+.wc-split-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.wc-column {
+  background: rgba(8, 18, 44, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.wc-column-header {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wc-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wc-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.badge-blue {
+  background: rgba(2, 132, 199, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+.badge-gold {
+  background: rgba(245, 197, 66, 0.12);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  color: #f5c542;
+}
+
+.wc-status-pill {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.pill-gold {
+  color: #f5c542;
+  border-color: rgba(245, 197, 66, 0.3);
+}
+
+.wc-column-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.wc-column-desc {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.wc-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  margin-bottom: 28px;
+}
+
+/* Workshop Card */
+.workshop-card {
+  background: rgba(10, 22, 54, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.workshop-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(12, 28, 68, 0.85);
+}
+
+.workshop-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.workshop-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(2, 132, 199, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.workshop-category {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.workshop-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.workshop-overview {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.workshop-card-footer {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.notice-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #f5c542;
+}
+
+.notice-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f5c542;
+  box-shadow: 0 0 6px #f5c542;
+}
+
+/* Competition Card */
+.competition-card {
+  background: rgba(10, 22, 54, 0.65);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.competition-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 197, 66, 0.45);
+  background: rgba(14, 28, 68, 0.85);
+}
+
+.competition-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.competition-trophy-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(245, 197, 66, 0.12);
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5c542;
+}
+
+.competition-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f5c542;
+  background: rgba(245, 197, 66, 0.1);
+  border: 1px solid rgba(245, 197, 66, 0.25);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.competition-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.competition-focus {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.competition-footer {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.comp-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.status-gold-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+.eligibility-notice-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.eligibility-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #f5c542;
+  margin: 0 0 6px;
+}
+
+.eligibility-desc {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.wc-column-footer {
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.btn-wc-primary {
+  display: block;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(2, 132, 199, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-wc-primary:hover {
+  background: rgba(2, 132, 199, 0.35);
+  color: #ffffff;
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+.btn-wc-gold {
+  display: block;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(245, 197, 66, 0.12);
+  border: 1px solid rgba(245, 197, 66, 0.4);
+  color: #f5c542;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-wc-gold:hover {
+  background: rgba(245, 197, 66, 0.25);
+  color: #ffffff;
+  border-color: #f5c542;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 960px) {
+  .wc-split-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

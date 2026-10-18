@@ -34,8 +34,8 @@ export default function AboutSection() {
             </p>
 
             <div className="about-cta-subrow">
-              <Link href="/about" className="about-readmore-link">
-                Read Full Conclave Mission &amp; Overview &rarr;
+              <Link href="/register" className="about-readmore-link">
+                Join As An Ecosystem Participant &rarr;
               </Link>
             </div>
           </div>

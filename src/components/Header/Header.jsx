@@ -7,16 +7,35 @@ import './Header.css';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { currentPath } = useRouter();
+  const { currentPath, setCurrentPath } = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      const sectionIds = ['contact', 'register', 'schedule', 'why-attend', 'exhibitors', 'speakers', 'sessions', 'workshops', 'events', 'about', 'tracks', 'highlights', 'home'];
+      const scrollPos = window.scrollY + 120;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          // Map to nav item path
+          let navPath = `/${id}`;
+          if (id === 'home' || id === 'highlights' || id === 'tracks') navPath = '/';
+          else if (id === 'sessions' || id === 'workshops') navPath = '/events';
+          else if (id === 'why-attend') navPath = '/about';
+          
+          if (setCurrentPath) {
+            setCurrentPath(navPath);
+          }
+          break;
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [setCurrentPath]);
 
   // Close mobile menu on Escape key
   useEffect(() => {

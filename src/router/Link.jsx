@@ -9,12 +9,9 @@ export default function Link({ href, className = '', children, onClick, ...props
       return;
     }
 
-    if (href.startsWith('/')) {
+    if (href.startsWith('/') || href.startsWith('#')) {
       e.preventDefault();
       navigate(href);
-      if (onClick) onClick(e);
-    } else if (href.startsWith('#')) {
-      // Anchor link
       if (onClick) onClick(e);
     }
   };

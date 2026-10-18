@@ -1,0 +1,164 @@
+.why-attend-section {
+  padding: 84px 24px;
+  background-color: #040816;
+  position: relative;
+}
+
+.why-attend-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.why-attend-card {
+  position: relative;
+  background: rgba(8, 18, 44, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.why-attend-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245, 197, 66, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(2, 132, 199, 0.15);
+}
+
+.why-attend-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.why-attend-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(2, 132, 199, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  transition: all 0.25s ease;
+}
+
+.why-attend-card:hover .why-attend-icon-box {
+  background: rgba(245, 197, 66, 0.18);
+  border-color: rgba(245, 197, 66, 0.5);
+  color: #f5c542;
+  box-shadow: 0 0 14px rgba(245, 197, 66, 0.3);
+}
+
+.why-attend-index {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+}
+
+.why-attend-card:hover .why-attend-index {
+  color: rgba(245, 197, 66, 0.6);
+}
+
+.why-attend-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+.why-attend-desc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.why-attend-accent-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(245, 197, 66, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.why-attend-card:hover .why-attend-accent-line {
+  opacity: 1;
+}
+
+.attendee-personas-bar {
+  background: rgba(8, 18, 44, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 22px 26px;
+}
+
+.personas-title {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #f5c542;
+  margin-bottom: 14px;
+}
+
+.personas-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.persona-chip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.persona-chip-role {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.persona-chip-desc {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+  .why-attend-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .personas-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .why-attend-grid {
+    grid-template-columns: 1fr;
+  }
+  .personas-list {
+    grid-template-columns: 1fr;
+  }
+}

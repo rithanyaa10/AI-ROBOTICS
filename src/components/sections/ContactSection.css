@@ -1,0 +1,147 @@
+/* ================================================================
+   CONTACT SECTION
+   ================================================================ */
+
+.contact-section {
+  padding: var(--section-py) 0;
+  background: var(--color-bg-secondary);
+  position: relative;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: all var(--transition-base);
+}
+
+.contact-card:hover {
+  border-color: rgba(56, 189, 248, 0.2);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue-400);
+  margin-bottom: 18px;
+}
+
+.contact-card-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 14px;
+  font-family: var(--font-heading);
+}
+
+/* Phone */
+.contact-phone-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.contact-phone-entry:last-child {
+  margin-bottom: 0;
+}
+
+.contact-phone-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.contact-phone-number {
+  font-size: var(--text-sm);
+  color: var(--color-blue-400);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-phone-number:hover {
+  color: var(--color-gold-400);
+}
+
+/* Venue */
+.contact-venue-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+}
+
+.contact-venue-address {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Organizer */
+.contact-org-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+}
+
+.contact-org-motto {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Website */
+.contact-website-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-blue-400);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-website-link:hover {
+  color: var(--color-gold-400);
+}
+
+.contact-website-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin: 8px 0 0;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

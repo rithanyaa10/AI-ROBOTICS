@@ -1,319 +1,387 @@
-/* Hero Carousel Section */
-.hero-carousel-section {
+/* ================================================================
+   HERO SECTION & CAROUSEL
+   The official promotional posters feature complete visual artwork.
+   This layout ensures:
+   1. The poster banners display proportionally without text overlap.
+   2. The static mock navbar in the poster is neatly cropped out (-10% top offset).
+   3. The fixed React navbar sits cleanly at the top of the viewport.
+   4. A dedicated, high-contrast action bar below the banner gives
+      unobstructed CTAs and key event badges.
+   ================================================================ */
+
+.hero-section {
   position: relative;
   width: 100%;
-  background-color: #040816;
+  margin-top: 68px; /* Offset below fixed site header */
+  background: var(--color-bg-deep);
+}
+
+/* Hero Viewport: sized to show the poster without stretching */
+.hero-viewport {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 45%; /* Sized to fit 16:9 banner with top 10% cropped */
   overflow: hidden;
+  background: #020617;
+}
+
+.hero-viewport:focus {
   outline: none;
 }
 
-.hero-carousel-section:focus-visible {
-  box-shadow: inset 0 0 0 2px #38bdf8;
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1920 / 950;
-  min-height: clamp(340px, 50vw, 920px);
-  max-height: 960px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Carousel Track & Slides */
-.carousel-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-slide {
+/* Slide Track */
+.hero-slides-track {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s;
-  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+  overflow: hidden;
 }
 
-.carousel-slide.active {
+.hero-slide.active {
   opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
-.slide-image-wrapper {
-  position: relative;
+/* Shifting the image top by -10% neatly crops out the embedded mock navbar */
+.hero-slide-image {
+  position: absolute;
+  top: -10%;
+  left: 0;
   width: 100%;
-  height: 100%;
-}
-
-.slide-image {
-  width: 100%;
-  height: 100%;
+  height: 110%;
   object-fit: cover;
   object-position: center top;
   display: block;
 }
 
-/* Subtle Gradient Overlays for seamless blending */
-.carousel-overlay-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 110px;
-  background: linear-gradient(180deg, rgba(3, 8, 22, 0.7) 0%, rgba(3, 8, 22, 0.2) 65%, transparent 100%);
-  pointer-events: none;
-  z-index: 10;
-}
-
-.carousel-overlay-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 90px;
-  background: linear-gradient(0deg, rgba(3, 8, 22, 0.85) 0%, rgba(3, 8, 22, 0.3) 50%, transparent 100%);
-  pointer-events: none;
-  z-index: 10;
-}
-
-/* Navigation Arrows (Prev / Next) */
-.carousel-control-btn {
+/* Controls */
+.hero-control {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(5, 12, 30, 0.65);
-  border: 1px solid rgba(245, 197, 66, 0.45);
-  color: #ffffff;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(4, 10, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #ffffff;
   cursor: pointer;
-  z-index: 20;
+  transition: all var(--transition-base);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: all 0.25s ease;
-  padding: 0;
+  opacity: 0;
 }
 
-.carousel-control-btn:hover {
+.hero-viewport:hover .hero-control,
+.hero-viewport:focus-within .hero-control {
+  opacity: 1;
+}
+
+.hero-control svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hero-control:hover {
   background: rgba(2, 132, 199, 0.85);
   border-color: #f5c542;
-  color: #ffffff;
-  box-shadow: 0 0 18px rgba(2, 132, 199, 0.6), 0 0 8px rgba(245, 197, 66, 0.4);
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.5);
   transform: translateY(-50%) scale(1.08);
 }
 
-.carousel-control-btn:active {
-  transform: translateY(-50%) scale(0.96);
+.hero-control-prev {
+  left: 18px;
 }
 
-.carousel-control-btn:focus-visible {
-  outline: 2px solid #38bdf8;
-  outline-offset: 3px;
+.hero-control-next {
+  right: 18px;
 }
 
-.control-prev {
-  left: 24px;
-}
-
-.control-next {
-  right: 24px;
-}
-
-.control-icon {
-  width: 22px;
-  height: 22px;
-}
-
-/* Indicator Dots and Play/Pause Bar */
-.carousel-indicators-wrapper {
+/* Indicators */
+.hero-indicators {
   position: absolute;
-  bottom: 22px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 20;
+  z-index: 10;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(4, 9, 24, 0.7);
+  gap: 14px;
   padding: 6px 14px;
+  background: rgba(4, 10, 24, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.carousel-indicators {
+.hero-dots {
   display: flex;
-  align-items: center;
   gap: 8px;
 }
 
-.indicator-dot {
-  background: transparent;
-  border: none;
-  padding: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.indicator-dot:focus-visible {
-  outline: 2px solid #38bdf8;
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-.dot-inner {
-  display: block;
-  width: 10px;
-  height: 10px;
+.hero-dot {
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.indicator-dot:hover .dot-inner {
-  background: rgba(255, 255, 255, 0.75);
-}
-
-.indicator-dot.active .dot-inner {
-  width: 28px;
-  height: 10px;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #38bdf8 0%, #f5c542 100%);
-  box-shadow: 0 0 10px rgba(245, 197, 66, 0.6);
-}
-
-/* Play/Pause Button */
-.carousel-play-pause-btn {
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
   background: transparent;
-  border: none;
-  color: #cbd5e1;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease, background-color 0.2s ease;
   padding: 0;
-  margin-left: 2px;
+  transition: all var(--transition-base);
 }
 
-.carousel-play-pause-btn:hover {
+.hero-dot.active {
+  background: var(--color-gold-400);
+  border-color: var(--color-gold-400);
+  box-shadow: 0 0 10px var(--color-gold-glow);
+  transform: scale(1.25);
+}
+
+.hero-dot:hover:not(.active) {
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hero-play-pause {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+}
+
+.hero-play-pause:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-gold-400);
+}
+
+/* ================================================================
+   HERO ACTION BAR (Separated from banner to prevent text overlap)
+   ================================================================ */
+
+.hero-action-bar {
+  background: linear-gradient(180deg, #07122b 0%, #030816 100%);
+  border-top: 1px solid rgba(245, 197, 66, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero-action-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hero-action-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.hero-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(245, 197, 66, 0.12);
+  border: 1px solid rgba(245, 197, 66, 0.4);
+  border-radius: 9999px;
   color: #f5c542;
-  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
-.carousel-play-pause-btn:focus-visible {
-  outline: 2px solid #38bdf8;
-  outline-offset: 2px;
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f5c542;
+  box-shadow: 0 0 8px #f5c542;
 }
 
-/* Screen Reader Only Utility */
-.sr-only {
-  position: absolute;
+.hero-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.hero-meta-item svg {
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.hero-meta-divider {
   width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* Mobile & Tablet Responsiveness */
+.hero-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.hero-action-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 70%, #d97706 100%);
+  background-size: 200% 200%;
+  color: #ffffff;
+  border: 1px solid rgba(245, 197, 66, 0.65);
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.35);
+}
+
+.hero-action-primary:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(245, 197, 66, 0.5);
+  border-color: #f5c542;
+}
+
+.hero-action-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================================ */
+
+@media (max-width: 1024px) {
+  .hero-viewport {
+    padding-bottom: 52%;
+  }
+
+  .hero-action-container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-action-meta {
+    justify-content: center;
+  }
+
+  .hero-action-buttons {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
-  .carousel-container {
-    aspect-ratio: 16 / 9;
-    min-height: 280px;
+  .hero-section {
+    margin-top: 60px;
   }
 
-  .carousel-control-btn {
-    width: 38px;
-    height: 38px;
+  .hero-viewport {
+    padding-bottom: 60%;
   }
 
-  .control-prev {
-    left: 10px;
+  .hero-control {
+    width: 36px;
+    height: 36px;
+    opacity: 0.8;
   }
 
-  .control-next {
-    right: 10px;
+  .hero-control svg {
+    width: 16px;
+    height: 16px;
   }
 
-  .control-icon {
-    width: 18px;
-    height: 18px;
+  .hero-control-prev {
+    left: 8px;
   }
 
-  .carousel-indicators-wrapper {
-    bottom: 12px;
-    padding: 4px 10px;
-    gap: 8px;
+  .hero-control-next {
+    right: 8px;
   }
 
-  .dot-inner {
-    width: 8px;
-    height: 8px;
+  .hero-meta-divider {
+    display: none;
   }
 
-  .indicator-dot.active .dot-inner {
-    width: 20px;
-    height: 8px;
+  .hero-action-bar {
+    padding: 14px 16px;
+  }
+
+  .hero-action-btn {
+    padding: 9px 18px;
+    font-size: 0.82rem;
   }
 }
 
 @media (max-width: 480px) {
-  .carousel-container {
-    min-height: 240px;
+  .hero-viewport {
+    padding-bottom: 70%;
   }
 
-  .carousel-control-btn {
-    width: 34px;
-    height: 34px;
+  .hero-action-meta {
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .control-prev {
-    left: 6px;
+  .hero-action-buttons {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .control-next {
-    right: 6px;
+  .hero-action-btn {
+    width: 100%;
+    justify-content: center;
   }
 
-  .carousel-indicators-wrapper {
-    bottom: 8px;
-  }
-}
-
-/* Accessibility: Respect Reduced Motion Preferences */
-@media (prefers-reduced-motion: reduce) {
-  .carousel-slide {
-    transition: none !important;
-  }
-
-  .carousel-control-btn {
-    transition: none !important;
-  }
-
-  .dot-inner {
-    transition: none !important;
+  .hero-indicators {
+    bottom: 10px;
   }
 }

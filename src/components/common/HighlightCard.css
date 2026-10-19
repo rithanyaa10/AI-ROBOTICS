@@ -1,74 +1,71 @@
 .highlight-card {
   position: relative;
-  background: rgba(10, 22, 54, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 28px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 22px;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
   overflow: hidden;
 }
 
 .highlight-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(245, 197, 66, 0.4);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(2, 132, 199, 0.2);
-  background: rgba(13, 28, 68, 0.8);
+  transform: translateY(-4px);
+  border-color: rgba(245, 197, 66, 0.35);
+  box-shadow: var(--shadow-md);
+  background: var(--color-surface-hover);
 }
 
 .highlight-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .highlight-icon-box {
-  width: 54px;
-  height: 54px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(245, 197, 66, 0.1) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #38bdf8;
-  transition: all 0.25s ease;
+  color: var(--color-blue-400);
+  transition: all var(--transition-base);
 }
 
 .highlight-card:hover .highlight-icon-box {
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(245, 197, 66, 0.25) 100%);
-  color: #f5c542;
-  border-color: rgba(245, 197, 66, 0.5);
-  box-shadow: 0 0 14px rgba(245, 197, 66, 0.25);
+  background: rgba(2, 132, 199, 0.25);
+  color: var(--color-gold-400);
+  border-color: rgba(245, 197, 66, 0.4);
 }
 
 .highlight-tag {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #f5c542;
-  background: rgba(245, 197, 66, 0.1);
-  padding: 4px 10px;
-  border-radius: 9999px;
-  border: 1px solid rgba(245, 197, 66, 0.25);
+  color: var(--color-gold-400);
+  background: rgba(245, 197, 66, 0.08);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  font-family: var(--font-heading);
 }
 
 .highlight-card-title {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 12px;
-  letter-spacing: -0.2px;
+  color: var(--color-text-heading);
+  margin: 0 0 10px;
 }
 
 .highlight-card-desc {
-  font-size: 0.92rem;
-  color: #94a3b8;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
   flex: 1;
@@ -80,9 +77,9 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-blue-400), transparent);
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity var(--transition-base);
 }
 
 .highlight-card:hover .highlight-card-bottom-accent {

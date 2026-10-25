@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Link from '../../router/Link.jsx';
+import { GOOGLE_FORM_URL } from '../../data/navigation.js';
 import { exhibitionsData, liveDemosData } from '../../data/eventsData.js';
 import SectionTitle from '../common/SectionTitle.jsx';
 import EventCard from '../common/EventCard.jsx';
@@ -79,9 +79,14 @@ export default function ExhibitionsDemosSection() {
 
             <div className="showcase-footer-action">
               <span className="action-hint">Interested in showcasing your technology or industrial solutions?</span>
-              <Link href="/register" className="btn-showcase-action">
-                Become an Exhibitor &rarr;
-              </Link>
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-showcase-action"
+              >
+                Register as Exhibitor &rarr;
+              </a>
             </div>
           </div>
         )}
@@ -123,9 +128,14 @@ export default function ExhibitionsDemosSection() {
 
             <div className="showcase-footer-action">
               <span className="action-hint">Experience cutting-edge systems running live in Coimbatore.</span>
-              <Link href="/register" className="btn-showcase-action-cyan">
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-showcase-action-cyan"
+              >
                 Register as Attendee &rarr;
-              </Link>
+              </a>
             </div>
           </div>
         )}

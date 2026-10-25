@@ -1,5 +1,5 @@
 import Link from '../../router/Link.jsx';
-import { navItems } from '../../data/navigation.js';
+import { navItems, GOOGLE_FORM_URL } from '../../data/navigation.js';
 import { contactInfo } from '../../data/contactInfo.js';
 import './Footer.css';
 
@@ -42,9 +42,20 @@ export default function Footer() {
               <ul className="footer-links-list">
                 {navItems.map((item) => (
                   <li key={item.id}>
-                    <Link href={item.path} className="footer-nav-link">
-                      {item.label}
-                    </Link>
+                    {item.isExternal || item.id === 'register' ? (
+                      <a
+                        href={GOOGLE_FORM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-nav-link"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link href={item.path} className="footer-nav-link">
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

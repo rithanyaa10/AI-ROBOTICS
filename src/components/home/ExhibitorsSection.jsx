@@ -1,4 +1,4 @@
-import Link from '../../router/Link.jsx';
+import { GOOGLE_FORM_URL } from '../../data/navigation.js';
 import SectionTitle from '../common/SectionTitle.jsx';
 import ExhibitorCard from '../common/ExhibitorCard.jsx';
 import './ExhibitorsSection.css';
@@ -57,9 +57,14 @@ export default function ExhibitorsSection() {
             </p>
           </div>
           <div className="prospectus-action">
-            <Link href="/register" className="btn-reserve-booth">
-              Express Interest as Exhibitor &rarr;
-            </Link>
+            <a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-reserve-booth"
+            >
+              Register as Exhibitor &rarr;
+            </a>
           </div>
         </div>
       </div>

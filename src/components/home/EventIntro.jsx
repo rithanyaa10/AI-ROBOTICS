@@ -1,4 +1,5 @@
 import Link from '../../router/Link.jsx';
+import { GOOGLE_FORM_URL } from '../../data/navigation.js';
 import './EventIntro.css';
 
 export default function EventIntro() {
@@ -47,9 +48,14 @@ export default function EventIntro() {
             <Link href="/about" className="btn-intro-outline">
               Learn More About Conclave &rarr;
             </Link>
-            <Link href="/register" className="btn-intro-gold">
-              Register Your Interest
-            </Link>
+            <a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-intro-gold"
+            >
+              Register Now &rarr;
+            </a>
           </div>
         </div>
       </div>

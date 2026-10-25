@@ -27,6 +27,71 @@
   pointer-events: none;
 }
 
+/* Official Google Form Notice Card */
+.registration-notice-card {
+  max-width: 680px;
+  margin: 0 auto 32px;
+  padding: 24px 28px;
+  background: rgba(2, 132, 199, 0.1);
+  border: 1px solid rgba(245, 197, 66, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(245, 197, 66, 0.05);
+}
+
+.notice-badge-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  background: rgba(245, 197, 66, 0.14);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  padding: 4px 14px;
+  border-radius: 9999px;
+}
+
+.notice-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #f5c542;
+  box-shadow: 0 0 10px #f5c542;
+  animation: pulseGold 2s infinite ease-in-out;
+}
+
+@keyframes pulseGold {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}
+
+.notice-pill-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #f5c542;
+}
+
+.registration-official-message {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+  letter-spacing: 0.2px;
+}
+
+.registration-subnote {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Action Buttons */
 .cta-action-buttons {
   display: flex;
   align-items: center;
@@ -40,29 +105,31 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 34px;
+  padding: 16px 38px;
   border-radius: 9999px;
   background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 70%, #d97706 100%);
-  border: 1px solid rgba(245, 197, 66, 0.65);
+  border: 1px solid rgba(245, 197, 66, 0.75);
   color: #ffffff;
-  font-weight: 700;
-  font-size: 0.96rem;
+  font-weight: 800;
+  font-size: 1.02rem;
   letter-spacing: 0.5px;
+  text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.45);
   transition: all 0.25s ease;
 }
 
 .btn-register-trigger:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(245, 197, 66, 0.45);
+  box-shadow: 0 8px 28px rgba(245, 197, 66, 0.5);
   border-color: #f5c542;
+  color: #ffffff;
 }
 
 .btn-learn-more {
   display: inline-flex;
   align-items: center;
-  padding: 14px 32px;
+  padding: 15px 32px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -80,6 +147,74 @@
   transform: translateY(-2px);
 }
 
+/* Registration Categories Cards Grid */
+.reg-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 0 0 36px;
+  text-align: left;
+}
+
+.reg-category-card {
+  background: rgba(4, 12, 34, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.25s ease;
+}
+
+.reg-category-card:hover {
+  border-color: rgba(245, 197, 66, 0.5);
+  background: rgba(6, 18, 48, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.reg-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.reg-card-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.reg-check-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(245, 197, 66, 0.15);
+  color: #f5c542;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-category-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.reg-category-desc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Features Strip */
 .cta-features-strip {
   display: flex;
   align-items: center;
@@ -103,290 +238,22 @@
   color: #f5c542;
 }
 
-/* Modal Overlay */
-.reg-modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.reg-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.reg-modal-card {
-  position: relative;
-  width: 100%;
-  max-width: 640px;
-  background: #08122c;
-  border: 1px solid rgba(245, 197, 66, 0.4);
-  border-radius: 20px;
-  padding: 36px 32px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(2, 132, 199, 0.25);
-  max-height: 90vh;
-  overflow-y: auto;
-  z-index: 1;
-}
-
-.modal-close-button {
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  background: transparent;
-  border: none;
-  font-size: 28px;
-  color: #94a3b8;
-  cursor: pointer;
-  line-height: 1;
-  transition: color 0.2s ease;
-}
-
-.modal-close-button:hover {
-  color: #f5c542;
-}
-
-.modal-header {
-  margin-bottom: 24px;
-  text-align: left;
-}
-
-.modal-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 3px 10px;
-  border-radius: 9999px;
-  margin-bottom: 8px;
-}
-
-.modal-title {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0 0 6px;
-}
-
-.modal-sub {
-  font-size: 0.88rem;
-  color: #94a3b8;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.reg-demo-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  text-align: left;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #e2e8f0;
-}
-
-.form-input,
-.form-select {
-  width: 100%;
-  background: rgba(4, 8, 22, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 10px 14px;
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-input:focus,
-.form-select:focus {
-  outline: none;
-  border-color: #38bdf8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
-}
-
-.form-input.input-error {
-  border-color: #ef4444;
-}
-
-.field-error-text {
-  font-size: 0.74rem;
-  color: #ef4444;
-  font-weight: 500;
-}
-
-.modal-privacy-note {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 0.76rem;
-  color: #94a3b8;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 10px 14px;
-  border-radius: 8px;
-  line-height: 1.45;
-}
-
-.modal-privacy-note svg {
-  color: #f5c542;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.modal-actions-row {
-  margin-top: 8px;
-}
-
-.btn-submit-reg {
-  width: 100%;
-  padding: 13px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 70%, #d97706 100%);
-  border: 1px solid rgba(245, 197, 66, 0.6);
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.btn-submit-reg:hover {
-  box-shadow: 0 4px 18px rgba(245, 197, 66, 0.4);
-  border-color: #f5c542;
-  transform: translateY(-1px);
-}
-
-/* Submission Success State */
-.submission-success-card {
-  text-align: center;
-  padding: 16px 8px;
-}
-
-.success-icon-badge {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(16, 185, 129, 0.15);
-  border: 2px solid #10b981;
-  color: #10b981;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 18px;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-}
-
-.success-title {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0 0 10px;
-}
-
-.success-message {
-  font-size: 0.95rem;
-  color: #cbd5e1;
-  line-height: 1.6;
-  margin: 0 0 20px;
-}
-
-.success-message strong {
-  color: #f5c542;
-}
-
-.success-details-box {
-  background: rgba(4, 8, 22, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 16px 20px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: left;
-}
-
-.detail-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  gap: 12px;
-}
-
-.detail-row span {
-  color: #94a3b8;
-}
-
-.detail-row strong {
-  color: #ffffff;
-}
-
-.success-disclaimer {
-  font-size: 0.78rem;
-  color: #94a3b8;
-  line-height: 1.5;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 12px 14px;
-  border-radius: 8px;
-  margin-bottom: 24px;
-}
-
-.btn-success-close {
-  padding: 12px 32px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.92rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-success-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #38bdf8;
-  color: #38bdf8;
-}
-
 @media (max-width: 640px) {
   .registration-cta-wrapper {
-    padding: 36px 20px;
+    padding: 36px 18px;
   }
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .registration-notice-card {
+    padding: 18px 16px;
+  }
+  .registration-official-message {
+    font-size: 1.1rem;
   }
   .btn-register-trigger,
   .btn-learn-more {
     width: 100%;
     justify-content: center;
+  }
+  .cta-features-strip {
+    gap: 16px;
   }
 }

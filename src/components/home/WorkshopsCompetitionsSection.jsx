@@ -1,4 +1,4 @@
-import Link from '../../router/Link.jsx';
+import { GOOGLE_FORM_URL } from '../../data/navigation.js';
 import { workshopsData, competitionsData } from '../../data/eventsData.js';
 import SectionTitle from '../common/SectionTitle.jsx';
 import Icon from '../common/Icon.jsx';
@@ -50,9 +50,14 @@ export default function WorkshopsCompetitionsSection() {
             </div>
 
             <div className="wc-column-footer">
-              <Link href="/register" className="btn-wc-primary">
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-wc-primary"
+              >
                 Register Interest for Workshops &rarr;
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -97,9 +102,14 @@ export default function WorkshopsCompetitionsSection() {
             </div>
 
             <div className="wc-column-footer">
-              <Link href="/register" className="btn-wc-gold">
-                Inquire for Competition Entry &rarr;
-              </Link>
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-wc-gold"
+              >
+                Register for Competitions &rarr;
+              </a>
             </div>
           </div>
         </div>

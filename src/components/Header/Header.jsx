@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Link from '../../router/Link.jsx';
 import { useRouter } from '../../router/RouterContext.jsx';
-import { navItems } from '../../data/navigation.js';
+import { navItems, GOOGLE_FORM_URL } from '../../data/navigation.js';
 import './Header.css';
 
 export default function Header() {
@@ -93,17 +93,29 @@ export default function Header() {
         <nav className="nav-desktop" aria-label="Primary Navigation">
           <ul className="nav-list">
             {navItems.map((item) => {
-              const isActive = currentPath === item.path;
+              const isActive = currentPath === item.path || (item.id === 'register' && currentPath === '/register');
+              const isRegister = item.id === 'register' || item.isHighlight;
               return (
                 <li key={item.id} className="nav-item">
-                  <Link
-                    href={item.path}
-                    className={`nav-link ${item.isHighlight ? 'nav-link-register' : ''} ${
-                      isActive ? 'active' : ''
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
+                  {item.isExternal || isRegister ? (
+                    <a
+                      href={GOOGLE_FORM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`nav-link ${item.isHighlight ? 'nav-link-register' : ''} ${
+                        isActive ? 'active' : ''
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.path}
+                      className={`nav-link ${isActive ? 'active' : ''}`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               );
             })}
@@ -162,18 +174,31 @@ export default function Header() {
 
           <ul className="mobile-nav-list">
             {navItems.map((item) => {
-              const isActive = currentPath === item.path;
+              const isActive = currentPath === item.path || (item.id === 'register' && currentPath === '/register');
+              const isRegister = item.id === 'register' || item.isHighlight;
               return (
                 <li key={item.id} className="mobile-nav-item">
-                  <Link
-                    href={item.path}
-                    className={`mobile-nav-link ${item.isHighlight ? 'mobile-nav-register' : ''} ${
-                      isActive ? 'active' : ''
-                    }`}
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </Link>
+                  {item.isExternal || isRegister ? (
+                    <a
+                      href={GOOGLE_FORM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`mobile-nav-link ${item.isHighlight ? 'mobile-nav-register' : ''} ${
+                        isActive ? 'active' : ''
+                      }`}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.path}
+                      className={`mobile-nav-link ${isActive ? 'active' : ''}`}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               );
             })}

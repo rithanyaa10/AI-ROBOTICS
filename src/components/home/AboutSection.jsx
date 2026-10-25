@@ -1,4 +1,4 @@
-import Link from '../../router/Link.jsx';
+import { GOOGLE_FORM_URL } from '../../data/navigation.js';
 import SectionTitle from '../common/SectionTitle.jsx';
 import './AboutSection.css';
 
@@ -34,9 +34,14 @@ export default function AboutSection() {
             </p>
 
             <div className="about-cta-subrow">
-              <Link href="/register" className="about-readmore-link">
-                Join As An Ecosystem Participant &rarr;
-              </Link>
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about-readmore-link"
+              >
+                Register as Ecosystem Participant &rarr;
+              </a>
             </div>
           </div>
 

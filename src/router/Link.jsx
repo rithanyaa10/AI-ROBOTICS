@@ -9,7 +9,11 @@ export default function Link({ href, className = '', children, onClick, ...props
       return;
     }
 
-    if (href.startsWith('/') || href.startsWith('#')) {
+    if (props.target === '_blank') {
+      return;
+    }
+
+    if (href && (href.startsWith('/') || href.startsWith('#'))) {
       e.preventDefault();
       navigate(href);
       if (onClick) onClick(e);
